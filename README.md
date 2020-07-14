@@ -8,7 +8,8 @@ To add Web api go in your controller section and create new folder named as Api 
 After adding controller you have to specify the authentication scheme e.g JWT and route path prefix e.g “api/” for all api request calls.
 
 
-**Controller  Code : **
+**Controller  Code :**
+
 ```C#
 using System;
 using System.Collections.Generic;
@@ -145,13 +146,13 @@ Startup Configuration:
 First of you have to add authentication schemes configuration in Startup.cs
 You have to add both cookie and jwt token configurations but you can select any of  one as default scheme in this case we have to select cookie scheme as default which will be applied to all without specifying explicitly , to use jwt scheme on webapi we have to specify explicitly.  
 
-**Add identity **
+**Add identity**
 ```C#
 services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ProductContext>()
                 .AddDefaultTokenProviders();
 ```
-**Configure Cookie **    
+**Configure Cookie**    
 ```C#
 services.ConfigureApplicationCookie(options =>
             {
@@ -183,4 +184,4 @@ services.ConfigureApplicationCookie(options =>
            
             services.Configure<JwtOptions>(Configuration.GetSection("jwt"));  
             
-           ```C#
+           ```
